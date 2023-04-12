@@ -1,16 +1,15 @@
 ﻿using System.Drawing;
-Bitmap image1;
-/*
-    white:Color [A=255, R=255, G=255, B=255]
-    red:Color [A=255, R=224, G=32, B=64]
-    black:Color [A=255, R=0, G=0, B=0] 
-*/
 
 try
 {
-    image1 = new Bitmap(@"C:\Users\sebas\OneDrive\Desktop\Image01 (1).bmp");
+    Bitmap image1;
+    string bitmapPath;
     int x, y;
     List<string> centerCoordinates = new List<string>();
+    Console.WriteLine("Please enter the path for the bitmap file...");
+    bitmapPath = Console.ReadLine();
+    image1 = new Bitmap(@$"{bitmapPath}");
+
     Boolean CheckAllNeighbors(Bitmap matrix, int x, int y, int value)
     {
         List<bool> neighbors = new List<bool>();
@@ -56,9 +55,11 @@ try
     {
         Console.WriteLine($"{centerCoordinates[i]}");
     }
+    Console.WriteLine("Please press enter to quit");
+    Console.ReadLine();
     
 }
 catch
 {
-    throw new Exception("There was an error");
+    throw new Exception("This is exceptionally poor error handling");
 }
